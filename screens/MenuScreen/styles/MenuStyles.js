@@ -9,6 +9,12 @@ const menuStyles = StyleSheet.create({
     backgroundColor: "white",
   },
 
+  containerLoad: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   nameApp: {
     fontSize: 50,
     marginTop: 20,

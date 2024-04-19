@@ -26,11 +26,13 @@ const homeStyles = StyleSheet.create({
     fontSize: 30,
     color: "white",
     textAlign: "center",
-    paddingHorizontal: 5,
+    paddingHorizontal: 10,
+    fontWeight: "bold",
   },
 
   description: {
     fontSize: 25,
+    color: "#f8f8ff",
   },
 
   button: {

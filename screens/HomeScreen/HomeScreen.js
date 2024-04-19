@@ -18,15 +18,13 @@ export default function HomeScreen() {
       <View style={homeStyles.imageView}>
         <Image source={wallpaper} style={homeStyles.wallpaper}></Image>
       </View>
-      <Text style={homeStyles.title}>
-        LISTO PARA CONOCER MÁS SOBRE TU PELUDO
-      </Text>
-      <Text style={homeStyles.description}>NO compres, ADOPTA</Text>
+      <Text style={homeStyles.title}>READY TO LEARN MORE ABOUT YOUR FURRY</Text>
+      <Text style={homeStyles.description}>DON'T BUY, ADOPT</Text>
       <TouchableOpacity
         style={homeStyles.button}
         onPress={() => navigation.navigate("Menu")}
       >
-        <Text style={homeStyles.textButton}>Ver peludos!</Text>
+        <Text style={homeStyles.textButton}>See furry!</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

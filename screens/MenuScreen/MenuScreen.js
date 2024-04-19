@@ -14,11 +14,10 @@ function MenuScreen() {
   useEffect(() => {
     const fetchBreeds = async () => {
       try {
-        setLoadedBreeds(true);
         const response = await fetch("https://api.thedogapi.com/v1/breeds");
         const data = await response.json();
         setDataDogs(data);
-        // console.log(data);
+        setLoadedBreeds(true);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -51,7 +50,7 @@ function MenuScreen() {
           />
         </View>
       </View>
-      {loadedBreeds ? (
+      {loadedBreeds && dataDogs.length > 0 ? (
         <FlatList
           style={menuStyles.list}
           data={dataDogs}
@@ -63,11 +62,13 @@ function MenuScreen() {
           )}
         />
       ) : (
-        <LottieView
-          source={require("./assets/loading.json")}
-          autoPlay={true}
-          style={{ width: 150, height: 150 }}
-        />
+        <View style={menuStyles.containerLoad}>
+          <LottieView
+            source={require("./assets/loading.json")}
+            autoPlay={true}
+            style={{ width: 150, height: 150 }}
+          />
+        </View>
       )}
     </SafeAreaView>
   );

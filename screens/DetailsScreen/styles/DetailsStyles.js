@@ -17,7 +17,7 @@ const detailsStyles = StyleSheet.create({
   },
 
   imageView: {
-    width: windowWidth,
+    width: windowWidth - 10,
     height: windowHeight / 3,
     justifyContent: "center",
     alignItems: "center",
@@ -31,7 +31,7 @@ const detailsStyles = StyleSheet.create({
     resizeMode: "contain",
     height: "80%",
     marginVertical: 10,
-    borderRadius: 100,
+    borderRadius: 10,
   },
 
   header: {
