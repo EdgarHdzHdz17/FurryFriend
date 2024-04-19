@@ -6,6 +6,34 @@ const menuStyles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
     padding: 5,
+    backgroundColor: "white",
+  },
+
+  nameApp: {
+    fontSize: 50,
+    marginTop: 20,
+    color: "#E57A00",
+    fontWeight: "bold",
+  },
+
+  list: {
+    marginTop: 30,
+  },
+
+  header: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  input: {
+    width: 300,
+    height: 50,
+    borderWidth: 1,
+    borderColor: "#a9a9a9",
+    borderRadius: 20,
+    marginTop: 20,
+    padding: 10,
+    fontSize: 20,
   },
 });
 

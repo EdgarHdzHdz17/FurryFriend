@@ -1,61 +1,73 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Button,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
+import { Text, SafeAreaView, FlatList, View, TextInput } from "react-native";
 import menuStyles from "./styles/MenuStyles";
 import CredentialComponent from "../../components/Credential";
 import { useNavigation } from "@react-navigation/native";
+import LottieView from "lottie-react-native";
 
 function MenuScreen() {
   const navigation = useNavigation();
   const [dataDogs, setDataDogs] = useState([]);
-  const [dataBreeds, setDataBreeds] = useState([]);
-  const [loadingBreeds, setLoadingBreeds] = useState(false);
+  const [loadedBreeds, setLoadedBreeds] = useState(false);
+  const [breed, setBreed] = useState();
 
   useEffect(() => {
     const fetchBreeds = async () => {
       try {
-        setLoadingBreeds(true);
+        setLoadedBreeds(true);
         const response = await fetch("https://api.thedogapi.com/v1/breeds");
         const data = await response.json();
         setDataDogs(data);
-        const dataBreeds = data.map((item) => item.name);
-        setDataBreeds(dataBreeds);
         // console.log(data);
-        // console.log(breedsarray);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    dataBreeds, fetchBreeds();
+    fetchBreeds();
   }, []);
 
-  const handlePress = (name) => {
-    navigation.navigate("Details");
-    console.log("Pressed:", name);
+  const handlePress = (name, reference_image_id) => {
+    navigation.navigate("Details", {
+      nameDog: name,
+      idDog: reference_image_id,
+    });
   };
 
   return (
     <SafeAreaView style={menuStyles.container}>
-      {loadingBreeds ? (
+      <View style={menuStyles.header}>
+        <Text style={menuStyles.nameApp}>FURRYFRIEND</Text>
+        <LottieView
+          source={require("./assets/animation.json")}
+          autoPlay={true}
+          style={{ width: 150, height: 150 }}
+        />
+        <View>
+          <TextInput
+            style={menuStyles.input}
+            placeholder="Breed Search"
+            value={breed}
+            onChangeText={setBreed}
+          />
+        </View>
+      </View>
+      {loadedBreeds ? (
         <FlatList
           style={menuStyles.list}
           data={dataDogs}
           renderItem={({ item }) => (
             <CredentialComponent
               title={item.name}
-              description={item.bred_for ? item.bred_for : "No description"}
-              onPress={() => handlePress(item.reference_image_id)}
+              onPress={() => handlePress(item.name, item.reference_image_id)}
             ></CredentialComponent>
           )}
         />
       ) : (
-        <Text>Loading...</Text>
+        <LottieView
+          source={require("./assets/loading.json")}
+          autoPlay={true}
+          style={{ width: 150, height: 150 }}
+        />
       )}
     </SafeAreaView>
   );

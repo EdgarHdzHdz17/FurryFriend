@@ -1,13 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import {
-  StyleSheet,
   Text,
   View,
   Image,
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-import { Dimensions } from "react-native";
 import homeStyles from "./styles/HomeStyles";
 import wallpaper from "./assets/wallpaper.png";
 import { useNavigation } from "@react-navigation/native";
