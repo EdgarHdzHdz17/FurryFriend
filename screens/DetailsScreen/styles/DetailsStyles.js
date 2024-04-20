@@ -13,17 +13,14 @@ const detailsStyles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#E57A00",
   },
 
   imageView: {
-    width: windowWidth - 10,
+    width: windowWidth - 5,
     height: windowHeight / 3,
     justifyContent: "center",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#E57A00",
-    borderRadius: 10,
   },
 
   image: {
@@ -31,7 +28,7 @@ const detailsStyles = StyleSheet.create({
     resizeMode: "contain",
     height: "80%",
     marginVertical: 10,
-    borderRadius: 10,
+    borderRadius: 20,
   },
 
   header: {
@@ -41,6 +38,7 @@ const detailsStyles = StyleSheet.create({
 
   nameDog: {
     fontSize: 40,
+    fontWeight: "bold",
   },
 
   bread_forDog: {

@@ -68,7 +68,9 @@ function DetailsScreen({ route }) {
               <Text style={detailsStyles.detailsTitle}>
                 Origin:{" "}
                 {detailsDog.breeds[0].origin ? (
-                  detailsDog.breeds[0].origin
+                  <Text style={detailsStyles.detailsData}>
+                    {detailsDog.breeds[0].origin}
+                  </Text>
                 ) : (
                   <Text style={detailsStyles.detailsData}>NO DATA</Text>
                 )}

@@ -11,7 +11,7 @@ const crendentialStyles = StyleSheet.create({
   },
 
   titleView: {
-    flex: 1,
+    flex: 2,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -19,13 +19,7 @@ const crendentialStyles = StyleSheet.create({
   imageView: {
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 100,
-  },
-
-  image: {
-    width: 100,
-    height: 100,
-    resizeMode: "cover",
+    flex: 1,
   },
 
   title: {
@@ -33,6 +27,7 @@ const crendentialStyles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
+    fontWeight: "bold",
   },
 
   icons: {

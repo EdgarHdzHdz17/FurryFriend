@@ -1,15 +1,15 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import crendentialStyles from "./CredentialStyles";
-import dogPerfil from "./assets/dogPerfil.png";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 
 function CredentialComponent({ title, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={crendentialStyles.container}>
         <View style={crendentialStyles.imageView}>
-          <Image source={dogPerfil} style={crendentialStyles.image}></Image>
+          <Entypo name="baidu" size={70} color="black" />
         </View>
         <View style={crendentialStyles.titleView}>
           <Text style={crendentialStyles.title}>{title}</Text>
