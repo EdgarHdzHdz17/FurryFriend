@@ -9,7 +9,7 @@ function MenuScreen() {
   const navigation = useNavigation();
   const [dataDogs, setDataDogs] = useState([]);
   const [loadedBreeds, setLoadedBreeds] = useState(false);
-  const [breed, setBreed] = useState();
+  const [breed, setBreed] = useState("");
 
   useEffect(() => {
     const fetchBreeds = async () => {
@@ -32,6 +32,10 @@ function MenuScreen() {
     });
   };
 
+  const filterDogs = dataDogs.filter((dog) =>
+    dog.name.toLowerCase().includes(breed.toLowerCase())
+  );
+
   return (
     <SafeAreaView style={menuStyles.container}>
       <View style={menuStyles.header}>
@@ -50,10 +54,10 @@ function MenuScreen() {
           />
         </View>
       </View>
-      {loadedBreeds && dataDogs.length > 0 ? (
+      {loadedBreeds && filterDogs.length > 0 ? (
         <FlatList
           style={menuStyles.list}
-          data={dataDogs}
+          data={filterDogs}
           renderItem={({ item }) => (
             <CredentialComponent
               title={item.name}
